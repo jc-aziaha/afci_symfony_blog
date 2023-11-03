@@ -12,10 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-#[Route('/admin')]
 class CategoryController extends AbstractController
 {
-    #[Route('/category/list', name: 'admin.category.index', methods:['GET'])]
+    #[Route('/admin/category/list', name: 'admin.category.index', methods:['GET'])]
     public function index(CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
@@ -25,7 +24,7 @@ class CategoryController extends AbstractController
     }
 
 
-    #[Route('/category/create', name: 'admin.category.create', methods:['GET', 'POST'])]
+    #[Route('/admin/category/create', name: 'admin.category.create', methods:['GET', 'POST'])]
     public function create(Request $request, EntityManagerInterface $em): Response
     {
 
@@ -52,7 +51,7 @@ class CategoryController extends AbstractController
     }
 
 
-    #[Route('/category/{id}/edit', name: 'admin.category.edit', methods:['GET', 'PUT'])]
+    #[Route('/admin/category/{id}/edit', name: 'admin.category.edit', methods:['GET', 'PUT'])]
     public function edit(Category $category, Request $request, EntityManagerInterface $em): Response
     {
         $form = $this->createForm(CategoryFormType::class, $category, [
@@ -78,7 +77,7 @@ class CategoryController extends AbstractController
     }
 
 
-    #[Route('/category/{id}/delete', name: 'admin.category.delete', methods:['DELETE'])]
+    #[Route('/admin/category/{id}/delete', name: 'admin.category.delete', methods:['DELETE'])]
     public function delete(Category $category, Request $request, EntityManagerInterface $em): Response
     {
         if ( $this->isCsrfTokenValid('delete_category_'.$category->getId(), $request->request->get('csrf_token') ) )
