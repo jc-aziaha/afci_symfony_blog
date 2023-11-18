@@ -6,6 +6,11 @@
 @import "~bootstrap/scss/bootstrap";
 
 
+// Components
+@import "./components/active";
+@import "./components/header";
+
+
 // Base
 @import "./base/typography";
 
