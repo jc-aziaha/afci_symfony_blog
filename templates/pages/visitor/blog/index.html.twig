@@ -50,14 +50,14 @@
 
             <div class="container my-5">
                 <div class="col-md-12 col-lg-8 mx-auto">
-                    {% for post in posts %}
+                    {% for post in posts|reverse %}
                     <div class="card my-5 shadow">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 {% if post.image %}
-                                <img class="h-100 w-100 rounded-start" src="{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{ post.title }}">
+                                    <img class="h-100 w-100 rounded-start" src="{{ vich_uploader_asset(post, 'imageFile') }}" alt="{{ post.title }}">
                                 {% else %}
-                                    <p>---</p>
+                                    <img class="h-100 w-100 rounded-start" src="{{asset('images/visitor/blog/default_post_image.jpg')}}" alt="{{ post.title }}">
                                 {% endif %}
                             </div>
                             <div class="col-md-8">

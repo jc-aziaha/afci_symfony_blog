@@ -90,16 +90,16 @@
                         {% if app.user %}
                             {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{path('admin.home.index')}}">Espace admin</a>
+                                    <a class="my-2 mx-sm-2 btn btn-outline-primary shadow" href="{{path('admin.home.index')}}">Espace admin</a>
                                 </li>
                             {% endif %}
                             {% if is_granted('ROLE_USER') %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Espace privé</a>
+                                    <a class="my-2 mx-sm-2 btn btn-outline-primary shadow" href="{{path('user.home.index')}}">Espace privé</a>
                                 </li>
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{path('app.logout')}}">Déconnexion</a>
+                                <a class="my-2 mx-sm-2 btn btn-primary shadow" href="{{path('app.logout')}}">Déconnexion</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
@@ -123,5 +123,6 @@
             <p>DWWM</p>
         </footer>
 
+        {% block javascript %}{% endblock %}
     </body>
 </html>
